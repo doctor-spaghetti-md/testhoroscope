@@ -58,16 +58,7 @@
 
 *{ box-sizing:border-box; }
 
-body{
-  margin:0;
-  font-family: var(--mono);
-  color: var(--ink);
-
-  background-image: url("/Horoscopes/Stickers/planes.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+body{ margin:0; background: #000; font-family: var(--mono); color: var(--ink); }
 
 
 /* top bar */
@@ -94,18 +85,33 @@ body{
   position:relative;
   max-width: 1120px;
   margin: 26px auto 40px;
-  background: var(--magenta);
+  background-image: url("/Horoscopes/Stickers/blackcrossbg.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   /* border-radius: 18px; */
 
   /* starting shadow */
   box-shadow: 0 44px 120px rgba(0,0,0,.75);
 
-  overflow:hidden;
+  overflow:visible;
   padding: 22px;
 
   animation: sirenGlow 2.3s linear infinite;
 }
+.sheet__sticker{
+  position:absolute;
+  top: -90px;
+  right: -70px;
+  width: 420px;
+  z-index: 50;
+  pointer-events:none;
+  transform: rotate(7deg);
 
+  filter:
+    drop-shadow(0 0 6px rgba(255,255,255,.55))
+    drop-shadow(10px 12px 0 rgba(0,0,0,.25));
+}
 /* xerox grain overlay
 .grain{
   position:absolute;
@@ -143,6 +149,18 @@ body{
   transform: rotate(-2deg);
 }
 
+.mast__sticker{
+  position: absolute;
+  top: -100px;      /* move upward outside the box */
+  right: -20px;    /* adjust horizontal position */
+  width: 500px;    /* control size */
+  z-index: 3;      /* make sure it sits above mast */
+
+  /* optional sticker feel */
+  filter: drop-shadow(6px 6px 0 rgba(0,0,0,.25));
+  transform: rotate(6deg);
+  pointer-events: none; /* if it's decorative */
+}
 .mast__name{
   margin: 10px 0 6px;
   font-family: var(--elite);
